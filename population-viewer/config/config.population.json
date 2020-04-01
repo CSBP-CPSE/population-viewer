@@ -26,6 +26,7 @@
         "en": "This map shows the population to buildings ratio at the 5 main levels of census geography.",
         "fr": "Cette carte affiche la proportion de population aux b[atiments pour les 5 principaux niveaux de géographie de recensement."
     },
+    "hasCheckbox": "false",
     "legend": [{
             "color": [230, 230, 230],
             "label": {

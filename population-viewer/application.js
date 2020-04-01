@@ -56,9 +56,10 @@ export default class ProxApp {
 	}
 
 	AddGroup() {
-		// Top-right group for toc, legend, etc.		
+		// Top-right group for toc, legend, etc.	
+		debugger;	
 		this.group = {
-			legend : Factory.LegendControl(this.current.Legend, this.current.Title, this.current.Subtitle),
+			legend : Factory.LegendControl(this.current.Legend, this.current.Title, this.current.Subtitle, this.current.hasCheckbox),
 			toc : Factory.TocControl(this.current.TOC),
 			opacity : Factory.OpacityControl(Store.Opacity),
 			// download : Factory.DownloadControl(Net.FilePath("/assets/proximity-measures.csv"))
