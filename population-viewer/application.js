@@ -45,6 +45,15 @@ export default class ProxApp {
 	}
 
 	AddSearch() {
+		this.config.search.items = this.config.search.items.map(i => {
+			return { 
+				id : i[0], 
+				name : i[1],
+				label : `${i[1]} (${i[0]})`, 
+				extent : [[i[2], i[3]], [i[4], i[5]]] 
+			}
+		});
+		
 		var search = Factory.SearchControl(this.config.search.items, Core.Nls("Search_Placeholder"), Core.Nls("Search_Title"));
 		
 		// Add top-left search bar
@@ -57,7 +66,6 @@ export default class ProxApp {
 
 	AddGroup() {
 		// Top-right group for toc, legend, etc.	
-		debugger;	
 		this.group = {
 			legend : Factory.LegendControl(this.current.Legend, this.current.Title, this.current.Subtitle, this.current.hasCheckbox),
 			toc : Factory.TocControl(this.current.TOC),
