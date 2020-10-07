@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel';
 
 export default {
-    input: '../population-viewer/main.js',
+    input: '../web-mapping-dev/population-viewer/main.js',
     output: {
         file: '../../web-mapping-prd/population-viewer/main.min.js',
         format: 'iife',
