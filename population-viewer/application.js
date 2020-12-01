@@ -6,7 +6,7 @@ import Util from "../basic-tools/tools/util.js";
 import Dom from "../basic-tools/tools/dom.js";
 import Store from "./store.js";
 
-export default class ProxApp { 
+export default class PopApp { 
 	
 	constructor(config) {		
 		this.config = config;
