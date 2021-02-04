@@ -1,7 +1,7 @@
 {
-	"name": "mapbox-viewer",
+	"name": "population-viewer",
 	"version": "1.0.0",
-	"description": "A mapbox wrapper",
+	"description": "Population Viewer application",
 	"main": "rollup.config.js",
 	"dependencies": {
 		"install": "^0.13.0",
@@ -15,20 +15,17 @@
 		"rollup-plugin-babel": "^4.4.0"
 	},
 	"scripts": {
-		"build": "rollup -c",
-		"proximity": "rollup -c ./config/proximity-viewer-prd.rollup.js",
-		"population": "rollup -c ./config/population-viewer-prd.rollup.js",
-		"lode-viewer": "rollup -c ./config/lode-viewer-prd.rollup.js"
+		"build": "rollup -c ./config/population-viewer.rollup.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/CSBP-CPSE/web-mapping-dev.git"
+		"url": "git+https://github.com/CSBP-CPSE/population-viewer.git"
 	},
 	"keywords": [
-		"mapbox"
+		"Population Viewer", "Population", "Viewer"
 	],
 	"bugs": {
-		"url": "https://github.com/CSBP-CPSE/web-mapping-dev/issues"
+		"url": "https://github.com/CSBP-CPSE/population-viewer/issues"
 	},
-	"homepage": "https://github.com/CSBP-CPSE/web-mapping-dev"
+	"homepage": "https://github.com/CSBP-CPSE/population-viewer"
 }
