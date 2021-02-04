@@ -22,7 +22,9 @@
 		"url": "git+https://github.com/CSBP-CPSE/population-viewer.git"
 	},
 	"keywords": [
-		"Population Viewer", "Population", "Viewer"
+		"Population Viewer",
+		"Population",
+		"Viewer"
 	],
 	"bugs": {
 		"url": "https://github.com/CSBP-CPSE/population-viewer/issues"
