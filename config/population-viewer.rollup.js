@@ -1,11 +1,18 @@
 import babel from 'rollup-plugin-babel';
 
+const banner = 
+`/*
+ * Population Viewer 
+ * https://github.com/CSBP-CPSE/population-viewer/blob/master/LICENCE.md
+ * v1.0 - 2021-02-04
+ */`;
+
 export default {
-    input: '../web-mapping-dev/population-viewer/main.js',
+    input: '../population-viewer/src/main.js',
     output: {
-        file: '../web-mapping-prd/population-viewer/main.min.js',
+        file: '../population-viewer/dist/main.min.js',
         format: 'iife',
-        name: 'bundle'
+        banner: banner
     },
     plugins: [
         babel({
