@@ -1,6 +1,5 @@
 import Splash from "./splash.js";
-import Core from "../basic-tools/tools/core.js";
-import Net from "../basic-tools/tools/net.js";
+import { Core, Net } from './web-mapping-components/web-mapping-components.min.js';
 
 import Configuration from "./configuration.js";
 import Application from "./application.js";

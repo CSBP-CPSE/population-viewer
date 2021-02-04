@@ -1,10 +1,5 @@
-import Other from "../mapbox-tools/tools/other.js";	// TODO : yiich that name sucks
-import Factory from "../mapbox-tools/tools/factory.js";
-import Core from "../basic-tools/tools/core.js";
-import Net from "../basic-tools/tools/net.js";
-import Util from "../basic-tools/tools/util.js";
-import Dom from "../basic-tools/tools/dom.js";
 import Store from "./store.js";
+import { Other, Factory, Core, Util, Dom } from './web-mapping-components/web-mapping-components.min.js';
 
 export default class PopApp { 
 	
