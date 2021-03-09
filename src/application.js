@@ -71,7 +71,7 @@ export default class PopApp {
 		
 		if (this.current.HasLayer(Store.Layer)) this.group.toc.SelectItem(Store.Layer);
 		
-		Dom.ToggleCss(this.group.toc.Node("root"), "hidden", !this.current.TOC);
+		Dom.ToggleClass(this.group.toc.Node("root"), "hidden", !this.current.TOC);
 		
 		this.map.AddControl(Factory.Group(this.group));
 		
@@ -130,7 +130,7 @@ export default class PopApp {
 		
 		if (this.current.HasLayer(Store.Layer)) this.group.toc.SelectItem(Store.Layer);
 		
-		Dom.ToggleCss(this.group.toc.Node("root"), "hidden", !this.current.TOC);
+		Dom.ToggleClass(this.group.toc.Node("root"), "hidden", !this.current.TOC);
 	}
 	
 	OnTOC_LayerVisibility(ev) {
