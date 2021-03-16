@@ -1,5 +1,5 @@
 import Store from "./store.js";
-import { Other, Factory, Core, Util, Dom } from './web-mapping-components/web-mapping-components.min.js';
+import { Other, Factory, Core, Util, Dom } from './web-mapping-components/web-mapping-components.js';
 
 export default class PopApp { 
 	
