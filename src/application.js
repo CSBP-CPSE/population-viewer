@@ -77,7 +77,7 @@ export default class PopApp {
 		
 		this.group.opacity.title = Core.Nls("Toc_Opacity_Title");
 		
-		this.group.opacity.On("OpacityChanged", this.OnLegend_OpacityChanged.bind(this));
+		this.group.opacity.On("OpacitySliderChanged", this.OnOpacitySlider_Changed.bind(this));
 		this.group.toc.On("LayerVisibility", this.OnTOC_LayerVisibility.bind(this));
 	}
 	
@@ -98,7 +98,7 @@ export default class PopApp {
 		bookmarks.On("BookmarkSelected", this.OnBookmarkSelected_Handler.bind(this));
 	}
 	
-	OnLegend_OpacityChanged(ev) {		
+	OnOpacitySlider_Changed(ev) {		
 		Store.Opacity = ev.opacity;
 		
 		this.map.Choropleth(this.current.LayerIDs, 'fill-color', this.current.Legend, this.group.opacity.opacity);
