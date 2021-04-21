@@ -168,6 +168,11 @@ input[type="radio"],
 	background-color : rgba(20,30,40,0.65);
 }
 
+.mapboxgl-map .mapboxgl-popup ul.popup-inner {
+    list-style-type: none;
+    padding: 0;
+}
+
 .modal.popup.absolute {
     width: 100%;
     height: 100%;
