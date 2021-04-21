@@ -100,8 +100,7 @@ export default class PopApp {
 	
 	OnOpacitySlider_Changed(ev) {		
 		Store.Opacity = ev.opacity;
-		
-		this.map.Choropleth(this.current.LayerIDs, 'fill-color', this.current.Legend, this.group.opacity.opacity);
+		this.map.UpdateMapLayers(this.current.LayerIDs, this.group.legend, Store.Opacity);
 	}
 	
 	OnHomeClick_Handler(ev) {
@@ -134,19 +133,21 @@ export default class PopApp {
 	}
 	
 	OnTOC_LayerVisibility(ev) {
-		this.map.HideLayer(Store.Layer);
+		this.map.ToggleMapLayerVisibility(Store.Layer);
 				
 		Store.Layer = ev.layer;
 		
-		this.map.ShowLayer(Store.Layer);
+		this.map.ToggleMapLayerVisibility(Store.Layer);
 	}
 	
 	OnMapStyleChanged_Handler(ev) {
 		// TODO : Issue here, this.config.TOC doesn't meant the layer is available
-		if (this.current.HasLayer(Store.Layer)) this.map.ShowLayer(Store.Layer);
+		if (this.current.HasLayer(Store.Layer)){
+			this.map.ToggleMapLayerVisibility(Store.Layer);
+		}
 		
 		this.map.SetClickableLayers(this.current.LayerIDs);
-		this.map.Choropleth(this.current.LayerIDs, 'fill-color', this.current.Legend, this.group.opacity.opacity)
+		this.map.UpdateMapLayers(this.current.LayerIDs, this.group.legend, Store.Opacity)
 	}
 	
 	OnMapMoveEnd_Handler(ev) {		
@@ -167,15 +168,19 @@ export default class PopApp {
 	}
 	
 	OnSearchChange_Handler(ev) {		
-		var legend = [{
-			color : this.config.search.color,
-			value : ["==", ["get", this.config.search.field], ev.item.id]
-		}, {
-			color : [255, 255, 255, 0]
-		}]
+		var legend = {
+			config: [
+				{
+					color : this.config.search.color,
+					value : ["==", ["get", this.config.search.field], ev.item.id]
+				},
+				{
+					color : [255, 255, 255, 0]
+				}
+			]
+		};
 		
-		this.map.Choropleth([this.config.search.layer], 'line-color', legend, this.group.opacity.opacity);
-		
+		this.map.UpdateMapLayers([this.config.search.layer], legend, Store.Opacity);
 		this.map.FitBounds(ev.item.extent, { padding:30, animate:false });
 	}
 }
