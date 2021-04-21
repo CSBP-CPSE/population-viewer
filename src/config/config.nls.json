@@ -1,4 +1,8 @@
 {
+	"Gen_Label_Field" : {
+		"en": "{0}: {1}",
+		"fr": "{0} : {1}"
+	},
     "Toc_Instruction": {
         "en": "Turn layers on or off",
         "fr": "Afficher ou cachers les couches"
@@ -182,5 +186,9 @@
 	"Mapbox_Improve" : {
 		"en" : "Improve this map",
 		"fr" : "Améliorer cette carte"
+	},
+	"Mapbox_Close_Popup" : {
+		"en" : "Close popup",
+		"fr" : "Fermer l'infobulle"
 	}
 }
