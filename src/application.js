@@ -17,16 +17,29 @@ export default class PopApp {
 	}
 
 	AddMap() {
-		var token = "pk.eyJ1IjoiZGVpbC1sZWlkIiwiYSI6ImNrMzZxODNvNTAxZjgzYm56emk1c3doajEifQ.H5CJ3maS0ZuxX_7QTgz1kg";
-		var token2 = "sk.eyJ1IjoiZGVpbC1sZWlkIiwiYSI6ImNrNmNheGc4MTFhY3IzbW56dGRud3d5cTkifQ.thkLSPhvTVBjMy8QOZoTiA";
+		let token; 
+
+		try {
+			if (this.config.credentials
+				&& this.config.credentials.mapbox
+				&& this.config.credentials.mapbox.accessToken) {
+				token = this.config.credentials.mapbox.accessToken;
+
+			} else {
+				throw 'Mapbox access token must be provided in config.credentials.json to generate a map';
+			}
+
+			this.map = Factory.Map("map", token, this.current.Style, [Store.Lng, Store.Lat], Store.Zoom);
+			
+			// Hooking up all events
+			this.map.On("StyleChanged", this.OnMapStyleChanged_Handler.bind(this));
+			this.map.On("MoveEnd", this.OnMapMoveEnd_Handler.bind(this));
+			this.map.On("ZoomEnd", this.OnMapZoomEnd_Handler.bind(this));
+			this.map.On("Click", this.OnMapClick_Handler.bind(this));
 		
-		this.map = Factory.Map("map", token, this.current.Style, [Store.Lng, Store.Lat], Store.Zoom);
-		
-		// Hooking up all events
-		this.map.On("StyleChanged", this.OnMapStyleChanged_Handler.bind(this));
-		this.map.On("MoveEnd", this.OnMapMoveEnd_Handler.bind(this));
-		this.map.On("ZoomEnd", this.OnMapZoomEnd_Handler.bind(this));
-		this.map.On("Click", this.OnMapClick_Handler.bind(this));
+		} catch (err) {
+			console.error(err);
+		}
 	}
 
 	AddBaseControls() {

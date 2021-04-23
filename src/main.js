@@ -39,7 +39,11 @@ function Start(results) {
 		config.table = value.result;
 	});
 		
-	Promise.all([p1, p2, p3, p4]).then(results => {
+	var p5 = Net.JSON(`./config/config.credentials.json`).then(value => {
+		config.credentials = value.result;
+	});
+		
+	Promise.all([p1, p2, p3, p4, p5]).then(results => {
 		var app = new Application(config);
 	});
 }
