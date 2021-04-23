@@ -1,17 +1,30 @@
-import Store from "./store.js";
-import { Other, Factory, Core, Util, Dom } from './web-mapping-components/web-mapping-components.js';
+import { Other, Factory, Core, Util, Dom, Store } from './web-mapping-components/web-mapping-components.js';
 
 export default class PopApp { 
 	
 	constructor(config) {		
 		this.config = config;
+
+		// Update local storage with population app specific default values:
+		if (!window.localStorage.getItem("lode-center-lat")) {
+			window.localStorage.setItem("lode-center-lat", 45.421);
+		}
+
+		if (!window.localStorage.getItem("lode-center-lng")) {
+			window.localStorage.setItem("lode-center-lng", -75.69);
+		}
+
+		if (!window.localStorage.getItem("lode-zoom")) {
+			window.localStorage.setItem("lode-zoom", 11);
+		}
+
 		this.current = this.config.maps[Store.Map];
 
 		if (!this.current) this.current = Util.FirstProperty(this.config.maps);
 		
-		this.AddMap();	
-		this.AddSearch();	
-		this.AddBaseControls();		
+		this.AddMap();
+		this.AddSearch();
+		this.AddBaseControls();
 		this.AddGroup();
 		this.AddMenu();
 	}
