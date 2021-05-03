@@ -91,7 +91,6 @@ export default class PopApp {
 			legend : Factory.LegendControl(this.current.Legend, this.current.Title, this.current.Subtitle, this.current.hasCheckbox),
 			toc : Factory.TocControl(this.current.TOC),
 			opacity : Factory.OpacityControl(Store.Opacity),
-			// download : Factory.DownloadControl(Net.FilePath("/assets/proximity-measures.csv"))
 			download : Factory.DownloadControl(null)
 		}
 		
