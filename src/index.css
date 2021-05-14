@@ -67,6 +67,7 @@ input[type="radio"],
 
 .mapboxgl-ctrl-group .mapboxgl-ctrl.legend > *,
 .mapboxgl-ctrl-group .mapboxgl-ctrl.opacity,
+.mapboxgl-ctrl-group .mapboxgl-ctrl.toc,
 .mapboxgl-ctrl-group .mapboxgl-ctrl.download {
     margin: 5px 10px;
 }
