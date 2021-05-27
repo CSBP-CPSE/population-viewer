@@ -125,7 +125,7 @@ export default class PopApp {
 	
 	OnOpacitySlider_Changed(ev) {		
 		Store.Opacity = ev.opacity;
-		this.map.UpdateMapLayers(this.current.LayerIDs, this.group.legend, Store.Opacity);
+		this.map.UpdateMapLayersWithLegendState(this.current.LayerIDs, this.group.legend, Store.Opacity);
 	}
 	
 	OnHomeClick_Handler(ev) {
@@ -172,7 +172,7 @@ export default class PopApp {
 		}
 		
 		this.map.SetClickableLayers(this.current.LayerIDs);
-		this.map.UpdateMapLayers(this.current.LayerIDs, this.group.legend, Store.Opacity)
+		this.map.UpdateMapLayersWithLegendState(this.current.LayerIDs, this.group.legend, Store.Opacity)
 	}
 	
 	OnMapMoveEnd_Handler(ev) {		
@@ -205,7 +205,7 @@ export default class PopApp {
 			]
 		};
 		
-		this.map.UpdateMapLayers([this.config.search.layer], legend, Store.Opacity);
+		this.map.UpdateMapLayersWithLegendState([this.config.search.layer], legend, Store.Opacity);
 		this.map.FitBounds(ev.item.extent, { padding:30, animate:false });
 	}
 }
