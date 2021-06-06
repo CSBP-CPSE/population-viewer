@@ -4,6 +4,8 @@ import { Core, Net } from './web-mapping-components/web-mapping-components.js';
 import Configuration from "./configuration.js";
 import Application from "./application.js";
 
+Core.root = "./"
+
 Net.JSON(`./config/config.nls.json`).then(value => {
 	Core.locale = document.documentElement.lang || "en";
 	Core.nls = value.result;
