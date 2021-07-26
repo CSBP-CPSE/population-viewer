@@ -88,7 +88,7 @@ export default class PopApp {
 	AddGroup() {
 		// Top-right group for toc, legend, etc.	
 		this.group = {
-			legend : Factory.LegendControl(this.current.Legend, this.current.Title, this.current.Subtitle, this.current.hasCheckbox),
+			legend : Factory.LegendControl(this.current.Legend, this.current.Title, null, this.current.Subtitle),
 			toc : Factory.TocControl(this.current.TOC),
 			opacity : Factory.OpacityControl(Store.Opacity),
 			download : Factory.DownloadControl(null)
