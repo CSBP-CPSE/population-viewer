@@ -173,6 +173,9 @@ export default class PopApp {
 		}
 		
 		this.map.SetClickableLayers(this.current.LayerIDs);
+
+		// Update styling colour and opacity of layers
+		this.map.ApplyLegendStylesToMapLayers(this.current.LayerIDs, this.group.legend);
 		this.map.UpdateMapLayersWithLegendState(this.current.LayerIDs, this.group.legend, Store.Opacity)
 	}
 	
@@ -206,7 +209,7 @@ export default class PopApp {
 			]
 		};
 		
-		this.map.UpdateMapLayersWithLegendState([this.config.search.layer], legend, Store.Opacity);
+		this.map.ApplyLegendStylesToMapLayers([this.config.search.layer], legend);
 		this.map.FitBounds(ev.item.extent, { padding:30, animate:false });
 	}
 }
