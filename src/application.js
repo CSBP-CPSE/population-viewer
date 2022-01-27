@@ -89,9 +89,9 @@ export default class PopApp {
 		// Top-right group for toc, legend, etc.	
 		this.group = {
 			legend : Factory.LegendControl(this.current.Legend, this.current.Title, null, this.current.Subtitle),
-			toc : Factory.TocControl(this.current.TOC),
+			toc : Factory.TocControl(this.current.TOC, Core.Nls("Toc_Instruction")),
 			opacity : Factory.OpacityControl(Store.Opacity),
-			download : Factory.DownloadControl(null)
+			download : Factory.DownloadControl(null, Core.Nls("Download_Title"))
 		}
 		
 		if (this.current.HasLayer(Store.Layer)) this.group.toc.SelectItem(Store.Layer);
@@ -109,8 +109,8 @@ export default class PopApp {
 	
 	AddMenu() {
 		// Top-left menu below navigation
-		var list = Factory.MapsListControl(this.config.maps);
-		var bookmarks = Factory.BookmarksControl(this.config.bookmarks);
+		var list = Factory.MapsListControl(this.config.maps, Core.Nls("Maps_Header"));
+		var bookmarks = Factory.BookmarksControl(this.config.bookmarks, Core.Nls("Bookmarks_Header"), Core.Nls("Bookmarks_Description"));
 		
 		this.menu = Factory.MenuControl();
 		
@@ -173,6 +173,7 @@ export default class PopApp {
 		}
 		
 		this.map.SetClickableLayers(this.current.LayerIDs);
+		this.map.ApplyLegendStylesToMapLayers(this.current.LayerIDs, this.group.legend);
 		this.map.UpdateMapLayersWithLegendState(this.current.LayerIDs, this.group.legend, Store.Opacity)
 	}
 	
@@ -205,8 +206,8 @@ export default class PopApp {
 				}
 			]
 		};
-		
-		this.map.UpdateMapLayersWithLegendState([this.config.search.layer], legend, Store.Opacity);
+
+		this.map.ApplyLegendStylesToMapLayers([this.config.search.layer], legend);
 		this.map.FitBounds(ev.item.extent, { padding:30, animate:false });
 	}
 }
